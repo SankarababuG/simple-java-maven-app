@@ -17,7 +17,7 @@ pipeline {
             post {
                 success{
                     echo "${WORKSPACE}"
-                    archiveArtifacts artifacts: '/target/*.war'
+                    archiveArtifacts artifacts: '"${WORKSPACE}"/target/*.war', followSymlinks: false, onlyIfSuccessful: true
                 }
             }
         }
