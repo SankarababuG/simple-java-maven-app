@@ -8,25 +8,14 @@ pipeline {
             steps
             {
                 echo "Building...."
+                sh "mvn clean package"
+            }
+            post {
+                success{
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
             }
         }
-
-        stage ('Test')
-        {
-            steps
-            {
-                echo "Testing...."
-            }
-        }
-
-        stage ('Deploy')
-        {
-            steps
-            {
-                echo "Deploying...."
-            }
-        }
-
 
     }
 }
