@@ -17,7 +17,7 @@ pipeline {
             post {
                 success{
                     echo "${WORKSPACE}"
-                    archiveArtifacts artifacts: '/target/*.jar', followSymlinks: false, onlyIfSuccessful: true
+                    archiveArtifacts artifacts: '**/target/*.jar'
                 }
             }
         }
